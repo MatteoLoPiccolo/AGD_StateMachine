@@ -1,3 +1,4 @@
+using StatePattern.StateMachine;
 using UnityEngine;
 
 namespace StatePattern.Enemy
@@ -8,7 +9,7 @@ namespace StatePattern.Enemy
         private IStateMachine stateMachine;
         private float targetRotation;
 
-        public RotatingState(OnePunchManStateMachine stateMachine) => this.stateMachine = stateMachine;
+        public RotatingState(IStateMachine stateMachine) => this.stateMachine = stateMachine;
 
         public void OnStateEnter() => targetRotation = (Owner.Rotation.eulerAngles.y + 180) % 360;
 

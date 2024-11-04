@@ -1,3 +1,4 @@
+using StatePattern.StateMachine;
 using UnityEngine;
 
 namespace StatePattern.Enemy
@@ -8,7 +9,7 @@ namespace StatePattern.Enemy
         private IStateMachine stateMachine;
         private float timer;
 
-        public IdleState(OnePunchManStateMachine stateMachine) => this.stateMachine = stateMachine;
+        public IdleState(IStateMachine stateMachine) => this.stateMachine = stateMachine;
 
         public void OnStateEnter() => ResetTimer();
 
