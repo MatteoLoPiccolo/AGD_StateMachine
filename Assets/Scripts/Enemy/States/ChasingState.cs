@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace StatePattern.Enemy
 {
-    public class ChasingState : IState
+    public class ChasingState<T> : IState where T : EnemyController
     {
         public EnemyController Owner { get; set; }
         private IStateMachine stateMachine;

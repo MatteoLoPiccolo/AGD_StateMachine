@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace StatePattern.Enemy
 {
-    public class OnePunchManStateMachine : IStateMachine
+    public class OnePunchManStateMachine : GenericStateMachine<OnePunchManController>
     {
         private OnePunchManController Owner;
         private IState currentState;
         protected Dictionary<States, IState> States = new Dictionary<States, IState>();
 
-        public OnePunchManStateMachine(OnePunchManController Owner)
+        public OnePunchManStateMachine(OnePunchManController Owner) : base (Owner)
         {
             this.Owner = Owner;
             CreateStates();
