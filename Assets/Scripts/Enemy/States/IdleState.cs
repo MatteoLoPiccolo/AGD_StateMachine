@@ -1,4 +1,5 @@
 using StatePattern.StateMachine;
+using System;
 using UnityEngine;
 
 namespace StatePattern.Enemy
@@ -18,7 +19,7 @@ namespace StatePattern.Enemy
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
-                if (Owner.GetType() == typeof(OnePunchManController))
+                if (typeof(T) == typeof(OnePunchManController))
                     stateMachine.ChangeState(States.ROTATING);
                 else
                     stateMachine.ChangeState(States.PATROLLING);
