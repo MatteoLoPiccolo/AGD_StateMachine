@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace StatePattern.Enemy
 {
     public class IdleState : IState
     {
-        public OnePunchManController Owner { get; set; }
-        private OnePunchManStateMachine stateMachine;
+        public EnemyController Owner { get; set; }
+        private IStateMachine stateMachine;
         private float timer;
 
         public IdleState(OnePunchManStateMachine stateMachine) => this.stateMachine = stateMachine;
@@ -18,7 +16,7 @@ namespace StatePattern.Enemy
         {
             timer -= Time.deltaTime;
             if (timer <= 0)
-                stateMachine.ChangeState(OnePunchManStates.ROTATING);
+                stateMachine.ChangeState(States.ROTATING);
         }
 
         public void OnStateExit() => timer = 0;
