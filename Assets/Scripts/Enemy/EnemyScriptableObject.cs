@@ -16,6 +16,7 @@ namespace StatePattern.Enemy
         public float MovementSpeed;
         public int MaximumHealth;
         public float RangeRadius;
+        public float TeleportingRadius = 5f;
 
         public float IdleTime;
         public float RotationSpeed;
@@ -26,5 +27,6 @@ namespace StatePattern.Enemy
 
         public List<Vector3> PatrollingPoints;
         public float PlayerStoppingDistance;
+
     }
 }

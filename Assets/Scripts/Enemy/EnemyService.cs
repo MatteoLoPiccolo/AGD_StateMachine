@@ -3,6 +3,7 @@ using StatePattern.Main;
 using StatePattern.Sound;
 using StatePattern.UI;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace StatePattern.Enemy
@@ -59,6 +60,9 @@ namespace StatePattern.Enemy
                     break;
                 case EnemyType.PatrolMan:
                     enemy = new PatrolManController(enemyScriptableObject);
+                    break;
+                case EnemyType.Hitman:
+                    enemy = new HitManController(enemyScriptableObject);
                     break;
                 default:
                     enemy = new EnemyController(enemyScriptableObject);
