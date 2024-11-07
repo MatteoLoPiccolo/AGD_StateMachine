@@ -3,8 +3,6 @@ using StatePattern.Main;
 using StatePattern.Sound;
 using StatePattern.UI;
 using System.Collections.Generic;
-using UnityEditor;
-using UnityEngine;
 
 namespace StatePattern.Enemy
 {
@@ -64,6 +62,9 @@ namespace StatePattern.Enemy
                 case EnemyType.Hitman:
                     enemy = new HitManController(enemyScriptableObject);
                     break;
+                case EnemyType.Clone:
+                    enemy = new CloneManController(enemyScriptableObject);
+                    break;
                 default:
                     enemy = new EnemyController(enemyScriptableObject);
                     break;
@@ -71,6 +72,8 @@ namespace StatePattern.Enemy
 
             return enemy;
         }
+
+        public void AddEnemy(EnemyController enemy) => activeEnemies.Add(enemy);
 
         public void EnemyDied(EnemyController deadEnemy)
         {
